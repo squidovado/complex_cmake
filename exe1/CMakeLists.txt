@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.14)
+project(exe1)
+include(FetchContent)
+FetchContent_Declare(bar SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../libbar)
+FetchContent_MakeAvailable(bar)
+add_executable(exe1 main.cpp)
+target_include_directories(exe1 PUBLIC ${bar_SOURCE_DIR})
+target_link_libraries(exe1 bar)
